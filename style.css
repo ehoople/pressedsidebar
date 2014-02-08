@@ -37,16 +37,26 @@ and Blueprint http://www.blueprintcss.org/
 8.0 - Clearings
 9.0 - Widgets
 10.0 - Content
-	10.1 - Posts and pages
-	10.2 - Asides
-	10.3 - Comments
+	10.1 - Masthead
+	10.2 - Posts and pages
+	10.3 - Layout
+	10.4 - Footer
+	10.5 - Asides
+	10.6 - Comments
 11.0 - Infinite scroll
 11.0 - Media
+12.0 - Utility Classes
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 1.0 - Reset
 --------------------------------------------------------------*/
+* {
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box; 
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -338,24 +348,6 @@ textarea {
 /*--------------------------------------------------------------
 5.0 Navigation
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-5.1 Links
---------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
-}
-a:hover,
-a:focus,
-a:active {
-	color: midnightblue;
-}
-
-/*--------------------------------------------------------------
-5.2 Menus
---------------------------------------------------------------*/
 .main-navigation {
 	position: relative;
 	text-align: center;
@@ -387,6 +379,25 @@ a:active {
 	position: absolute;
 	width: 1px;
 }
+
+/*--------------------------------------------------------------
+5.1 Links
+--------------------------------------------------------------*/
+a {
+	color: royalblue;
+}
+a:visited {
+	color: purple;
+}
+a:hover,
+a:focus,
+a:active {
+	color: midnightblue;
+}
+
+/*--------------------------------------------------------------
+5.2 Menus
+--------------------------------------------------------------*/
 
 
 /*--------------------------------------------------------------
@@ -466,6 +477,22 @@ a:active {
 	clear: both;
 }
 
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.clearfix:after {
+    clear: both;
+}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+
 /*--------------------------------------------------------------
 9.0 Widgets
 --------------------------------------------------------------*/
@@ -484,7 +511,16 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-10.0 Masthead
+10.0 Content
+--------------------------------------------------------------*/
+.site {
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+10.1 Masthead
 --------------------------------------------------------------*/
 .site-title {
 	font-family: Josefin-slab, serif;
@@ -498,15 +534,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-10.0 Content
---------------------------------------------------------------*/
-.site {
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-}
-/*--------------------------------------------------------------
-10.1 Posts and pages
+10.2 Posts and pages
 --------------------------------------------------------------*/
 .sticky {
 }
@@ -544,8 +572,47 @@ a:active {
 	position: absolute;
 	width: 1px;
 }
+
 /*--------------------------------------------------------------
-10.2 Asides
+10.3 Layout
+--------------------------------------------------------------*/
+.content-area {
+	float: left;
+	width: 80%;
+}
+.widget-area {
+	float: left;
+	width: 20%;
+	padding-left: 2em;
+}
+
+/*--------------------------------------------------------------
+10.4 Footer
+--------------------------------------------------------------*/
+footer {
+	font-size: 0.8em;
+	border-top: 1px dotted #CCC;
+	margin-top: 2em;
+	padding-top: 2em;
+	padding-bottom: 5em;
+}
+footer h1 {
+	font-family: Merriweather, serif;
+	font-weight: 700;
+	font-size: 1em;
+	text-align: left; 
+	margin-top: 0.67em;
+	margin-bottom: 0.67em;
+}
+footer p {
+	line-height: 0.5;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+/*--------------------------------------------------------------
+10.5 Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
@@ -553,7 +620,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-10.3 Comments
+10.6 Comments
 --------------------------------------------------------------*/
 .comment-content a {
 	word-wrap: break-word;
@@ -626,7 +693,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-12.0 Utility Classes
+13.0 Utility Classes
 --------------------------------------------------------------*/
 .invisible {
 	border: 0;
@@ -638,3 +705,5 @@ object {
 	position: absolute;
 	width: 1px;
 }
+
+
